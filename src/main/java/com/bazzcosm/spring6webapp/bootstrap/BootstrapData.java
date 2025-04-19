@@ -50,8 +50,10 @@ public class BootstrapData implements CommandLineRunner {
         Author rodSaved = authorRepository.save(rod);
         Book noEJBSaved = bookRepository.save(noEJB);
 
-        ericSaved.getBooks().add(dddSaved);
-        rodSaved.getBooks().add(noEJBSaved);
+        ericSaved.getBooks().add(dddSaved); // eric is the author of ddd
+        rodSaved.getBooks().add(noEJBSaved); // rod is the author of noEJB
+        dddSaved.getAuthors().add(ericSaved); // ddd is written by eric
+        noEJBSaved.getAuthors().add(rodSaved); // noEJB is written by rod
 
         Publisher publisher = new Publisher();
         publisher.setPublisherName("SFG Publishing");
